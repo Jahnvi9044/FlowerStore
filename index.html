@@ -600,6 +600,28 @@
   <!-- footer section start -->
   <section class="footer">
     <div class="card_container">
+
+       <p> Unique Visitors: <span id="uniqueCount">0</span></p>
+
+        <script>
+            // Get stored unique visitor count
+            let uniqueViews = localStorage.getItem("uniqueProfileViews");
+    
+            if (!uniqueViews) {
+                uniqueViews = 0;
+            }
+    
+            // Check if the user has already visited
+            if (!sessionStorage.getItem("visited")) {
+                sessionStorage.setItem("visited", "true"); // Mark user session as visited
+                uniqueViews++; // Increment unique views
+                localStorage.setItem("uniqueProfileViews", uniqueViews); // Store updated count
+            }
+    
+            // Display unique visitor count
+            document.getElementById("uniqueCount").textContent = uniqueViews;
+        </script>
+
       <!-- quick links -->
       <div class="card">
         <h3>quick links</h3>
