@@ -54,6 +54,21 @@ header {
     justify-content: center;
   }
   
+  header .navbar {
+    max-height: 0;
+    transform: translateY(-100%);
+    overflow: hidden;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  header #toggler:checked ~ .navbar {
+    max-height: 500px;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  
   header .navbar a {
     font-size: 2rem;
     padding: 0 1.5rem;
